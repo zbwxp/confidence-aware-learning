@@ -16,6 +16,7 @@ def negative_entropy(data, normalize=False, max_value=None):
     return -entropy
 
 # correctness history class
+# TODO: here is how the 'history' is recorded
 class History(object):
     def __init__(self, n_data):
         self.correctness = np.zeros((n_data))

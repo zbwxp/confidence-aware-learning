@@ -72,6 +72,7 @@ def main():
 
     # set criterion
     cls_criterion = nn.CrossEntropyLoss().cuda()
+    # TODO: may need to go back here to check how the loss is implemented
     ranking_criterion = nn.MarginRankingLoss(margin=0.0).cuda()
 
     # set optimizer (default:sgd)

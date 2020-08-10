@@ -85,14 +85,15 @@ def get_loader(data, data_path, batch_size):
 
 
     # make DataLoader
+    # TODO: may need to change num_workers here: orig is 4, now change it to 0
     train_loader = torch.utils.data.DataLoader(train_data,
                                                batch_size=batch_size,
                                                shuffle=True,
-                                               num_workers=4)
+                                               num_workers=0)
     test_loader = torch.utils.data.DataLoader(test_data,
                                               batch_size=batch_size,
                                               shuffle=False,
-                                              num_workers=4)
+                                              num_workers=0)
 
     print("-------------------Make loader-------------------")
     print('Train Dataset :',len(train_loader.dataset),
