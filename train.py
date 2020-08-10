@@ -41,12 +41,12 @@ def train(loader, model, criterion_cls, criterion_ranking, optimizer, epoch, his
             conf[:,0] = conf[:,0] - conf[:,1]
             confidence = conf[:,0]
 
-        # make input pair
+        # make input pair NOTE: the roll func, shift elements by 1 to the left (-1)
         rank_input1 = confidence
         rank_input2 = torch.roll(confidence, -1)
         idx2 = torch.roll(idx, -1)
 
-        # calc target, margin
+        # calc target, margin NOTE: the history func take place!
         rank_target, rank_margin = history.get_target_margin(idx, idx2)
         rank_target_nonzero = rank_target.clone()
         rank_target_nonzero[rank_target_nonzero == 0] = 1
